@@ -9,8 +9,9 @@ header {
     background: rgb(146, 217, 146);
 }
 
-h1 {
+.title {
     font-size: 2em;
+    padding-left: 0.5em;
 }
 
 nav {
@@ -25,7 +26,8 @@ nav a {
 }
 
 nav a:hover {
-    background-color: gray;
+    background-color: rgb(237, 220, 160);
+    border-radius: 20%;
 }
 
 main {
@@ -50,11 +52,16 @@ footer {
 }
 
 .profile-image {
-    display: flex;
     position: relative;
-    width: 200px;
-    border-radius: 10%;
-    object-fit: cover;
     float: right;
+    margin-right: 3em;
+    width: 250px;
+    border-radius: 10%;
     transform: scaleX(-1);
+}
+
+.social a {
+    color: black;
+    padding: 0.3em;
+    display: inline-block;
 }
