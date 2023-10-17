@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(146, 217, 146);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+nav {
+    margin-top: 0;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    background-color: gray;
+}
+
+main {
+    margin-top: 1em;
+}
+
+footer {
+    text-align: center;
+}
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.home .content {
+    text-align: left;
+    width: 50%;
+}
+
+.profile-image {
+    display: flex;
+    position: relative;
+    width: 200px;
+    border-radius: 10%;
+    object-fit: cover;
+    float: right;
+    transform: scaleX(-1);
+}
