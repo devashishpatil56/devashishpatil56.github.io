@@ -1,0 +1,31 @@
+---
+title: "Design efficient file uploads from browser"
+publishedAt: "2024-10-31"
+summary: "Design efficient file uploads from browser."
+---
+
+Imagine having a frontend, a backend, a database for storing metadata, and a blob storage like Google Cloud Storage or S3 bucket for storing large objects like images, videos etc. Apart from these things, there will be services like load balancers, NAT gateways etc which will also constitute to hops and network traffic.
+
+With the traditional approach, users would send the file from the client/frontend to the backend server. The file once uploaded to the server then needs to be uploaded to an object storage using some APIs or SDKs. This is how the architecture looks for such approach.
+
+TODO: Add Image
+
+There are multiple issues with this architecture:
+Too many hops, that too with file objects
+File is travelling through all the components here and will result in high network costs.
+More processing power to handle uploads and long running requests.
+What can be done instead?
+The file should be uploaded directly from the browser to the object storage and the metadata such as the upload location, storage etc should be updated in the database.
+
+But how can you do that?
+There is a concept called signed URLs. Signed URLs are time limited endpoint to access a resource in S3, Google cloud storage etc., either for reading or writing.
+
+The flow will look like this:
+
+TODO: Add Image
+
+Frontend will ask backend for a signed URL for a specific object for a limited time
+Backend will use the object storage service API to create the signed URL and respond back.
+Frontend will use this URL to upload the file and calls the backend again for the upload status.
+Based on the status, the backend will update the metadata server for information such as file location, upload status etc. This metadata can be used later for accessing the uploaded files.
+This completes the whole flow of efficient file uploads, reduces the hops and network traffic thereby reducing the costs as well.
